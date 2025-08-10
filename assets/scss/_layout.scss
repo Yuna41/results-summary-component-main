@@ -1,1 +1,193 @@
 @use './mixin';
+
+.comp{
+  &-bg{
+    background: mixin.$pale;
+    min-height: 100vh;
+    @include mixin.mq(pc){
+      position: relative;
+    }
+  }
+  &-inner{
+    @include mixin.mq(pc){
+      width: 700px;
+      display: flex;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 30px;
+      box-shadow: 0 4 15px mixin.$lavender;
+    }
+  }
+  &-result{
+    background: mixin.$grad01;
+    text-align: center;
+    padding: 30px 30px 40px;
+    color: mixin.$lavender;
+    border-radius: 0 0 30px 30px;
+    position: relative;
+    z-index: 1;
+    @include mixin.mq(pc){
+      width: 46%;
+      border-radius: 30px;
+      padding: 40px;
+    }
+    h2{
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 26px;
+      @include mixin.mq(pc){
+        font-size: 2rem;
+        margin-bottom: 40px;
+      }
+    }
+    &_score{
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 30px;
+      border-radius: 50%;
+      background: mixin.$grad02;
+      @include mixin.mq(pc){
+        width: 180px;
+        height: 180px;
+        margin-bottom: 40px;
+      }
+      .point{
+        font-size: 5.4rem;
+        font-weight: 800;
+        color: mixin.$white;
+        padding-top: 36px;
+        @include mixin.mq(pc){
+          font-size: 6.8rem;
+          padding-top: 48px;
+        }
+      }
+      .all{
+        font-weight: 800;
+        margin-top: 12px;
+      }
+    }
+    dt{
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: mixin.$white;
+      @include mixin.mq(pc){
+        margin-bottom: 20px;
+      }
+    }
+    dd{
+      max-width: 94%;
+      line-height: 1.3;
+      margin: 0 auto;
+    }
+  }
+  &-summary{
+    background: mixin.$white;
+    padding: 60px 30px 30px;
+    @include mixin.mq{
+      margin-top: -30px;
+    }
+    @include mixin.mq(pc){
+      width: calc(54% + 30px);
+      padding: 40px 40px 40px 70px;
+      margin-left: -30px;
+    }
+    h2{
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: mixin.$gray;
+      @include mixin.mq(pc){
+        font-size: 2rem;
+      }
+    }
+    &_label{
+      >div{
+        display: flex;
+        justify-content: space-between;
+        border-radius: 15px;
+        padding: 20px 20px 20px 50px;
+        position: relative;
+        +div{
+          margin-top: 18px;
+        }
+        &:before{
+          content: "";
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          top: 50%;
+          left: 20px;
+          transform: translateY(-50%);
+        }
+        &:nth-child(1){
+          background: hsla(0, 100%, 67%, .1);
+          &:before{
+            background: url(../../assets/images/icon-reaction.svg) no-repeat center center / contain;
+          }
+          dt{
+            color: mixin.$red;
+          }
+        }
+        &:nth-child(2){
+          background: hsla(39, 100%, 56%, .1);
+          &:before{
+            background: url(../../assets/images/icon-memory.svg) no-repeat center center / contain;
+          }
+          dt{
+            color: mixin.$yellow;
+          }
+        }
+        &:nth-child(3){
+          background: hsla(166, 100%, 37%, .1);
+          &:before{
+            background: url(../../assets/images/icon-verbal.svg) no-repeat center center / contain;
+          }
+          dt{
+            color: mixin.$teal;
+          }
+        }
+        &:nth-child(4){
+          background: hsla(234, 85%, 45%, .1);
+          &:before{
+            background: url(../../assets/images/icon-visual.svg) no-repeat center center / contain;
+          }
+          dt{
+            color: mixin.$blue;
+          }
+        }
+      }
+      dd{
+       color: mixin.$lavender;
+       font-weight: 700;
+       strong{
+        color: mixin.$gray;
+       }
+      }
+    }
+    .btn{
+      margin-top: 24px;
+      text-align: center;
+      @include mixin.mq(pc){
+        margin-top: 40px;
+      }
+      a{
+        display: block;
+        background: mixin.$gray;
+        color: mixin.$pale;
+        padding: 20px;
+        border-radius: 30px;
+        font-size: 1.8rem;
+        font-weight: 700;
+        @include mixin.mq(pc){
+          &:hover{
+            background: mixin.$grad01;
+          }
+        }
+      }
+    }
+  }
+}
