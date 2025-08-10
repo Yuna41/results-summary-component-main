@@ -1,0 +1,33 @@
+@use "sass:meta";
+
+// color
+$red: hsl(0, 100%, 67%);
+$yellow: hsl(39, 100%, 56%);
+$teal: hsl(166, 100%, 37%);
+$blue: hsl(234, 85%, 45%);
+$grad01: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+$grad02: linear-gradient(180deg, hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+$white: #fff;
+$pale: hsl(221, 100%, 96%);
+$lavender: hsl(241, 100%, 89%);
+$gray: hsl(224, 30%, 27%);
+
+// breakpoint
+$sp: 768px;
+$pc: 769px;
+
+@mixin mq($breakpoint: sp) {
+  @if meta.type-of($breakpoint) == string {
+    @if $breakpoint == sp {
+      $breakpoint: $sp;
+      @media (max-width: $breakpoint) {
+        @content;
+      }
+    } @else if $breakpoint == pc {
+      $breakpoint: $pc;
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+}

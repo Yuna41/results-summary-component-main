@@ -1,0 +1,20 @@
+@use './mixin';
+
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
+html{
+  font-size: 10px;
+}
+
+body{
+  font-family: "Hanken Grotesk", sans-serif;
+  font-weight: 500;
+  font-size: 1.8rem;
+  @include mixin.mq{
+    font-size: 1.6rem;
+  }
+}
+
+img{
+  width: 100%;
+}
